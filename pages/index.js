@@ -1,3 +1,9 @@
+function GlobalStyle(){
+
+}
+function title(){
+    
+}
 function HomePage() {
     return (
         <div>
