@@ -3,8 +3,10 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
-function AreaFoto(props){
-  console.log(props);
+var some = 0
+
+function AreaFoto(){
+  console.log(some);
 
       <Box
       styleSheet={{
@@ -60,7 +62,7 @@ function Titulo(props) {
 export default function PaginaInicial() {
   const [username, setUsername] = React.useState('L4rhy')
   const roteamento = useRouter()
-  var some = 0
+  
   return (
     <>
       <Box
@@ -140,7 +142,7 @@ export default function PaginaInicial() {
 
 
           {/* Photo Area */}
-          <AreaFoto tag={some}/>
+          <AreaFoto/>
           {/* Photo Area */}
         </Box>
       </Box>
