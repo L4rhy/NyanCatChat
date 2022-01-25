@@ -27,7 +27,7 @@ export default function PaginaInicial() {
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          backgroundColor: appConfig.theme.colors.primary["500"],
+          backgroundColor: appConfig.theme.colors.primary["100"],
           backgroundImage: 'url(http://24.media.tumblr.com/99211b1795f3685b0ab692926e778fa9/tumblr_mki6dchp871s35i1to1_500.gif)',
           backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         }}
