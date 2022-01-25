@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
 function AreaFoto(props){
+  console.log(props)
     if(props==0){
       <Box
       styleSheet={{
