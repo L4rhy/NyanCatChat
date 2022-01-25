@@ -5,43 +5,6 @@ import appConfig from '../config.json';
 
 var some = 0
 
-function AreaFoto(){
-      <Box
-      styleSheet={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        maxWidth: '200px',
-        padding: '16px',
-        backgroundColor: appConfig.theme.colors.neutrals["800"],
-        border: '1px solid',
-        borderColor: appConfig.theme.colors.neutrals['999'],
-        borderRadius: '10px',
-        flex: 1,
-        minHeight: '240px',
-      }}
-      >
-      <Image
-        styleSheet={{
-          borderRadius: '50%',
-          marginBottom: '16px',
-        }}
-        src={`https://github.com/${username}.png`}
-      />
-      <Text
-        class="nome"
-        variant="body4"
-        styleSheet={{
-          color: appConfig.theme.colors.neutrals["200"],
-          backgroundColor: appConfig.theme.colors.neutrals["900"],
-          padding: '3px 10px',
-          borderRadius: '1000px'
-        }}
-      >
-        {username}
-      </Text>
-    </Box>
-}
 function Titulo(props) {
   const Tag = props.tag || 'h1';
   return (
@@ -141,7 +104,41 @@ export default function PaginaInicial() {
 
 
           {/* Photo Area */}
-          <AreaFoto/>
+          <Box
+          styleSheet={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            maxWidth: '200px',
+            padding: '16px',
+            backgroundColor: appConfig.theme.colors.neutrals["800"],
+            border: '1px solid',
+            borderColor: appConfig.theme.colors.neutrals['999'],
+            borderRadius: '10px',
+            flex: 1,
+            minHeight: '240px',
+          }}
+          >
+          <Image
+            styleSheet={{
+              borderRadius: '50%',
+              marginBottom: '16px',
+            }}
+            src={`https://github.com/${username}.png`}
+          />
+          <Text
+            class="nome"
+            variant="body4"
+            styleSheet={{
+              color: appConfig.theme.colors.neutrals["200"],
+              backgroundColor: appConfig.theme.colors.neutrals["900"],
+              padding: '3px 10px',
+              borderRadius: '1000px'
+            }}
+          >
+            {username}
+          </Text>
+        </Box>
           {/* Photo Area */}
         </Box>
       </Box>
