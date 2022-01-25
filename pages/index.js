@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
-var some = 0
+var [some,setSome] = React.useState(0)
 
 function Titulo(props) {
   const Tag = props.tag || 'h1';
@@ -73,7 +73,7 @@ export default function PaginaInicial() {
                 console.log('usuario digitou', event.target.value)
                 const valor = event.target.value
                 if(valor.length>=1){
-                  some = 1
+                  setSome(1)
                 }
                 console.log(some);
                 setUsername(valor)
