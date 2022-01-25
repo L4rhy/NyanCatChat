@@ -6,8 +6,6 @@ import appConfig from '../config.json';
 var some = 0
 
 function AreaFoto(){
-  console.log(some);
-
       <Box
       styleSheet={{
         display: 'flex',
@@ -111,6 +109,7 @@ export default function PaginaInicial() {
               onChange={function (event) {
                 console.log('usuario digitou', event.target.value)
                 const valor = event.target.value
+                console.log(some);
                 if(valor.length>=2){
                   some = 1
                 }
