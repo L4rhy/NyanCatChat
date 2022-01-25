@@ -4,8 +4,8 @@ import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
 function AreaFoto(props){
-  console.log(props)
-    if(props.children==0){
+  console.log(props);
+
       <Box
       styleSheet={{
         display: 'flex',
@@ -41,7 +41,6 @@ function AreaFoto(props){
         {username}
       </Text>
     </Box>
-    }
 }
 function Titulo(props) {
   const Tag = props.tag || 'h1';
