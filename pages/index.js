@@ -5,7 +5,7 @@ import appConfig from '../config.json';
 
 function AreaFoto(props){
   console.log(props)
-    if(props==0){
+    if(props.children==0){
       <Box
       styleSheet={{
         display: 'flex',
@@ -41,23 +41,6 @@ function AreaFoto(props){
         {username}
       </Text>
     </Box>
-    }else{
-      <Box
-      styleSheet={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        maxWidth: '200px',
-        padding: '16px',
-        backgroundColor: appConfig.theme.colors.neutrals["800"],
-        border: '1px solid',
-        borderColor: appConfig.theme.colors.neutrals['999'],
-        borderRadius: '10px',
-        flex: 1,
-        minHeight: '240px',
-      }}
-      >
-      </Box>
     }
 }
 function Titulo(props) {
