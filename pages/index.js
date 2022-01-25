@@ -74,6 +74,8 @@ export default function PaginaInicial() {
                 const valor = event.target.value
                 if(valor.length>=1){
                   setSome("1")
+                }else{
+                  setSome("0")
                 }
                 console.log(some);
                 setUsername(valor)
