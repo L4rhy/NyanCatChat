@@ -3,7 +3,7 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
-var [some,setSome] = React.useState("0")
+const [some,setSome] = React.useState("0")
 
 function Titulo(props) {
   const Tag = props.tag || 'h1';
