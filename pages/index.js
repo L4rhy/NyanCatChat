@@ -72,10 +72,10 @@ export default function PaginaInicial() {
               onChange={function (event) {
                 console.log('usuario digitou', event.target.value)
                 const valor = event.target.value
-                console.log(some);
-                if(valor.length>=2){
+                if(valor.length>=1){
                   some = 1
                 }
+                console.log(some);
                 setUsername(valor)
               }}
               fullWidth
