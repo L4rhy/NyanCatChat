@@ -11,7 +11,7 @@ function Titulo(props) {
       <Tag>{props.children}</Tag>
       <style jsx>{`
               ${Tag} {
-                  color: ${appConfig.theme.colors.primary["500"]};
+                  color: ${appConfig.theme.colors.neutrals["000"]};
                   font-size: 24px;
                   font-weight: 600;
               }
@@ -27,7 +27,7 @@ export default function PaginaInicial() {
       <Box
         styleSheet={{
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          backgroundColor: appConfig.theme.colors.primary["300"],
+          backgroundColor: appConfig.theme.colors.primary["500"],
           backgroundImage: 'url(http://24.media.tumblr.com/99211b1795f3685b0ab692926e778fa9/tumblr_mki6dchp871s35i1to1_500.gif)',
           backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundBlendMode: 'multiply',
         }}
@@ -44,7 +44,7 @@ export default function PaginaInicial() {
             width: '100%', maxWidth: '700px',
             borderRadius: '5px', padding: '32px', margin: '16px',
             boxShadow: '0 2px 10px 0 rgb(0 0 0 / 20%)',
-            backgroundColor: appConfig.theme.colors.neutrals["500"],
+            backgroundColor: appConfig.theme.colors.neutrals["700"],
           }}
         >
           {/* Formulário */}
@@ -61,7 +61,7 @@ export default function PaginaInicial() {
             }}
           >
             <Titulo tag="h2">Bem Vinde!</Titulo>
-            <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.primary["400"] }}>
+            <Text variant="body3" styleSheet={{ marginBottom: '32px', color: appConfig.theme.colors.neutrals["300"] }}>
               {appConfig.name}
             </Text>
 
@@ -75,10 +75,10 @@ export default function PaginaInicial() {
               fullWidth
               textFieldColors={{
                 neutral: {
-                  textColor: appConfig.theme.colors.primary["400"],
-                  mainColor: appConfig.theme.colors.primary["500"],
-                  mainColorHighlight: appConfig.theme.colors.neutrals["500"],
-                  backgroundColor: appConfig.theme.colors.neutrals["400"],
+                  textColor: appConfig.theme.colors.neutrals["200"],
+                  mainColor: appConfig.theme.colors.neutrals["900"],
+                  mainColorHighlight: appConfig.theme.colors.primary["500"],
+                  backgroundColor: appConfig.theme.colors.neutrals["800"],
                 },
               }}
             />
@@ -87,10 +87,10 @@ export default function PaginaInicial() {
               label='Entrar'
               fullWidth
               buttonColors={{
-                contrastColor: appConfig.theme.colors.neutrals["100"],
-                mainColor: appConfig.theme.colors.neutrals["500"],
-                mainColorLight: appConfig.theme.colors.primary["300"],
-                mainColorStrong: appConfig.theme.colors.primary["500"],
+                contrastColor: appConfig.theme.colors.neutrals["000"],
+                mainColor: appConfig.theme.colors.primary["500"],
+                mainColorLight: appConfig.theme.colors.primary["400"],
+                mainColorStrong: appConfig.theme.colors.primary["600"],
               }}
             />
           </Box>
@@ -105,9 +105,9 @@ export default function PaginaInicial() {
               alignItems: 'center',
               maxWidth: '200px',
               padding: '16px',
-              backgroundColor: appConfig.theme.colors.neutrals["300"],
+              backgroundColor: appConfig.theme.colors.neutrals["800"],
               border: '1px solid',
-              borderColor: appConfig.theme.colors.neutrals['500'],
+              borderColor: appConfig.theme.colors.neutrals['999'],
               borderRadius: '10px',
               flex: 1,
               minHeight: '240px',
@@ -123,8 +123,8 @@ export default function PaginaInicial() {
             <Text
               variant="body4"
               styleSheet={{
-                color: appConfig.theme.colors.primary["200"],
-                backgroundColor: appConfig.theme.colors.primary["500"],
+                color: appConfig.theme.colors.neutrals["200"],
+                backgroundColor: appConfig.theme.colors.neutrals["900"],
                 padding: '3px 10px',
                 borderRadius: '1000px'
               }}
