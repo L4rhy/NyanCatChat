@@ -3,7 +3,62 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
-
+function AreaFoto(props){
+    if(props==0){
+      <Box
+      styleSheet={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        maxWidth: '200px',
+        padding: '16px',
+        backgroundColor: appConfig.theme.colors.neutrals["800"],
+        border: '1px solid',
+        borderColor: appConfig.theme.colors.neutrals['999'],
+        borderRadius: '10px',
+        flex: 1,
+        minHeight: '240px',
+      }}
+      >
+      <Image
+        styleSheet={{
+          borderRadius: '50%',
+          marginBottom: '16px',
+        }}
+        src={`https://github.com/${username}.png`}
+      />
+      <Text
+        class="nome"
+        variant="body4"
+        styleSheet={{
+          color: appConfig.theme.colors.neutrals["200"],
+          backgroundColor: appConfig.theme.colors.neutrals["900"],
+          padding: '3px 10px',
+          borderRadius: '1000px'
+        }}
+      >
+        {username}
+      </Text>
+    </Box>
+    }else{
+      <Box
+      styleSheet={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        maxWidth: '200px',
+        padding: '16px',
+        backgroundColor: appConfig.theme.colors.neutrals["800"],
+        border: '1px solid',
+        borderColor: appConfig.theme.colors.neutrals['999'],
+        borderRadius: '10px',
+        flex: 1,
+        minHeight: '240px',
+      }}
+      >
+      </Box>
+    }
+}
 function Titulo(props) {
   const Tag = props.tag || 'h1';
   return (
@@ -20,8 +75,9 @@ function Titulo(props) {
   );
 }
 export default function PaginaInicial() {
-  const [username, setUsername] = React.useState('L4rhy');
-  const roteamento = useRouter();
+  const [username, setUsername] = React.useState('L4rhy')
+  const roteamento = useRouter()
+  const some = 0
   return (
     <>
       <Box
@@ -51,9 +107,9 @@ export default function PaginaInicial() {
           <Box
             as="form"
             onSubmit={function (infosDoEvento) {
-              infosDoEvento.preventDefault();
-              console.log('Alguém submeteu o form');
-              roteamento.push('/chat');
+              infosDoEvento.preventDefault()
+              console.log('Alguém submeteu o form')
+              roteamento.push('/chat')
             }}
             styleSheet={{
               display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
@@ -68,9 +124,12 @@ export default function PaginaInicial() {
             <TextField
               value={username}
               onChange={function (event) {
-                console.log('usuario digitou', event.target.value);
-                const valor = event.target.value;
-                setUsername(valor);
+                console.log('usuario digitou', event.target.value)
+                const valor = event.target.value
+                if(valor.length>=2){
+                  some = 1
+                }
+                setUsername(valor)
               }}
               fullWidth
               textFieldColors={{
@@ -98,40 +157,7 @@ export default function PaginaInicial() {
 
 
           {/* Photo Area */}
-          <Box
-            styleSheet={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              maxWidth: '200px',
-              padding: '16px',
-              backgroundColor: appConfig.theme.colors.neutrals["800"],
-              border: '1px solid',
-              borderColor: appConfig.theme.colors.neutrals['999'],
-              borderRadius: '10px',
-              flex: 1,
-              minHeight: '240px',
-            }}
-          >
-            <Image
-              styleSheet={{
-                borderRadius: '50%',
-                marginBottom: '16px',
-              }}
-              src={`https://github.com/${username}.png`}
-            />
-            <Text
-              variant="body4"
-              styleSheet={{
-                color: appConfig.theme.colors.neutrals["200"],
-                backgroundColor: appConfig.theme.colors.neutrals["900"],
-                padding: '3px 10px',
-                borderRadius: '1000px'
-              }}
-            >
-              {username}
-            </Text>
-          </Box>
+          <AreaFoto>{some}</AreaFoto>
           {/* Photo Area */}
         </Box>
       </Box>
