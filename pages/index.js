@@ -111,13 +111,13 @@ export default function PaginaInicial() {
               onChange={function (event) {
                 console.log('usuario digitou', event.target.value)
                 const valor = event.target.value
-                if(valor.length>2){
-                  setSome("1")
-                }else{
-                  setSome("0")
-                }
-                console.log(some);
                 setUsername(valor)
+                  if(valor.length>2){
+                    setSome("1")
+                  }else{
+                    setSome("0")
+                  }
+                console.log(some);
               }}
               fullWidth
               textFieldColors={{
