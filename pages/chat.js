@@ -30,10 +30,7 @@ export default function ChatPage() {
         ]);
         setMensagem('');
     }
-    function HandleDeletaMensagem(mensagem){
-        setListaDeMensagens(listaDeMensagens.filter(mensagem))
-    }
-
+    
     return (
         <Box
             styleSheet={{
@@ -70,7 +67,7 @@ export default function ChatPage() {
                         borderRadius: '5px',
                         padding: '16px',
                     }}
-                >
+                    >
                     <MessageList mensagens={listaDeMensagens} />
                     <Box
                         as="form"
@@ -78,7 +75,7 @@ export default function ChatPage() {
                             display: 'flex',
                             alignItems: 'center',
                         }}
-                    >
+                        >
                         <TextField
                             value={mensagem}
                             onChange={(event) => {
@@ -135,7 +132,7 @@ function Header() {
                     colorVariant='neutral'
                     label='Logout'
                     href="/"
-                />
+                    />
             </Box>
         </>
     )
@@ -143,10 +140,13 @@ function Header() {
 
 function MessageList(props) {
     console.log(props);
+    function HandleDeletaMensagem(mensagem){
+        
+    }
     return (
         <Box
-            tag="ul"
-            styleSheet={{
+        tag="ul"
+        styleSheet={{
                 overflow: 'scroll',
                 display: 'flex',
                 flexDirection: 'column-reverse',
@@ -199,6 +199,7 @@ function MessageList(props) {
                             <Button
                                 label="X"
                                 variant='tertiary'
+                                marginRight="2"
                                 onClick={ ()=>{
                                     HandleDeletaMensagem(mensagem.id)
                                 }}
