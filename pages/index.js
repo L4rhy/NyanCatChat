@@ -43,6 +43,7 @@ function AreaFoto(props){
     </Text>
     </Box>
   )}else{
+    return(
     <Box
     styleSheet={{
       display: 'flex',
@@ -59,7 +60,7 @@ function AreaFoto(props){
     }}
     >
     </Box>
-  }
+    )}
   
 }
 function Titulo(props) {
