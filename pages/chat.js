@@ -195,7 +195,7 @@ function MessageList(props) {
                                 {(new Date().toLocaleDateString())}
                             <Button
                                 label="X"
-                                fullWidth
+                                variant='tertiary'
                                 buttonColors={{
                                     contrastColor: appConfig.theme.colors.neutrals["000"],
                                     mainColor: appConfig.theme.colors.primary["500"],
