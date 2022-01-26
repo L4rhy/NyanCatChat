@@ -4,7 +4,65 @@ import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
 const [some,setSome] = React.useState("0")
-
+function AreaFoto(){
+  if(some==0){
+  return(
+    <Box
+    styleSheet={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      maxWidth: '200px',
+      padding: '16px',
+      backgroundColor: appConfig.theme.colors.neutrals["800"],
+      border: '1px solid',
+      borderColor: appConfig.theme.colors.neutrals['999'],
+      borderRadius: '10px',
+      flex: 1,
+      minHeight: '240px',
+    }}
+    >
+    <Image
+      styleSheet={{
+        borderRadius: '50%',
+        marginBottom: '16px',
+      }}
+      src={`https://github.com/${username}.png`}
+    />
+    <Text
+      class="nome"
+      variant="body4"
+      styleSheet={{
+        color: appConfig.theme.colors.neutrals["200"],
+        backgroundColor: appConfig.theme.colors.neutrals["900"],
+        padding: '3px 10px',
+        borderRadius: '1000px'
+      }}
+    >
+      {username}
+    </Text>
+    </Box>
+  )}else{
+    return(
+    <Box
+    styleSheet={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      maxWidth: '200px',
+      padding: '16px',
+      backgroundColor: appConfig.theme.colors.neutrals["800"],
+      border: '1px solid',
+      borderColor: appConfig.theme.colors.neutrals['999'],
+      borderRadius: '10px',
+      flex: 1,
+      minHeight: '240px',
+    }}
+    >
+    </Box>
+    )
+  }
+}
 function Titulo(props) {
   const Tag = props.tag || 'h1';
   return (
@@ -72,7 +130,7 @@ export default function PaginaInicial() {
               onChange={function (event) {
                 console.log('usuario digitou', event.target.value)
                 const valor = event.target.value
-                if(valor.length>=1){
+                if(valor.length>2){
                   setSome("1")
                 }else{
                   setSome("0")
