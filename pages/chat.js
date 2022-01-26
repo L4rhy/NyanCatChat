@@ -101,6 +101,7 @@ export default function ChatPage() {
                                 color: appConfig.theme.colors.neutrals[200],
                             }}
                         />
+                        <Button iconName="arrowRight" />
                     </Box>
                 </Box>
             </Box>
