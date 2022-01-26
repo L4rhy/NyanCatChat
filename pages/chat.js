@@ -6,6 +6,8 @@ export default function ChatPage() {
     // Sua lógica vai aqui
 
     // ./Sua lógica vai aqui
+    const [mensagem, setMensagem] = React.useState("")
+    const [mensagens, setMensagens] = React.useState([])
     return (
         <Box
             styleSheet={{
@@ -54,6 +56,16 @@ export default function ChatPage() {
                         }}
                     >
                         <TextField
+                            value={mensagem}
+                            onChange={ (event)=>{
+                                const valor = event.target.value
+                                setMensagem(valor)
+                            }}
+                            onKayPress={ (event)=>{
+                                if(event.kay == "Enter"){
+                                    
+                                }
+                            }}
                             placeholder="Insira sua mensagem aqui..."
                             type="textarea"
                             styleSheet={{
