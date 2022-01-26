@@ -30,6 +30,9 @@ export default function ChatPage() {
         ]);
         setMensagem('');
     }
+    function HandleDeletaMensagem(mensagem){
+        setListaDeMensagens(listaDeMensagens.filter(mensagem))
+    }
 
     return (
         <Box
@@ -196,6 +199,9 @@ function MessageList(props) {
                             <Button
                                 label="X"
                                 variant='tertiary'
+                                onClick={ ()=>{
+                                    HandleDeletaMensagem(mensagem.id)
+                                }}
                                 buttonColors={{
                                     contrastColor: appConfig.theme.colors.neutrals["000"],
                                     mainColor: appConfig.theme.colors.primary["500"],
