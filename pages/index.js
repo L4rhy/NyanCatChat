@@ -5,8 +5,9 @@ import appConfig from '../config.json';
 
 function AreaFoto(props){
   console.log(props)  
+  if(props.children==0){
   return(
-      <Box
+    <Box
     styleSheet={{
       display: 'flex',
       flexDirection: 'column',
@@ -41,7 +42,25 @@ function AreaFoto(props){
       {props.Tag}
     </Text>
     </Box>
-  )
+  )}else{
+    <Box
+    styleSheet={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      maxWidth: '200px',
+      padding: '16px',
+      backgroundColor: appConfig.theme.colors.neutrals["800"],
+      border: '1px solid',
+      borderColor: appConfig.theme.colors.neutrals['999'],
+      borderRadius: '10px',
+      flex: 1,
+      minHeight: '240px',
+    }}
+    >
+    </Box>
+  }
+  
 }
 function Titulo(props) {
   const Tag = props.tag || 'h1';
@@ -113,9 +132,9 @@ export default function PaginaInicial() {
                 const valor = event.target.value
                 setUsername(valor)
                   if(valor.length>2){
-                    setSome("1")
-                  }else{
                     setSome("0")
+                  }else{
+                    setSome("1")
                   }
                 console.log(some);
               }}
