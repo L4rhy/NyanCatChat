@@ -145,7 +145,7 @@ export default function PaginaInicial() {
 
 
           {/* Photo Area */}
-          <AreaFoto>{some}</AreaFoto>
+          <AreaFoto></AreaFoto>
           {/* Photo Area */}
         </Box>
       </Box>
