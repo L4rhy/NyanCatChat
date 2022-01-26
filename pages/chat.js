@@ -102,8 +102,9 @@ export default function ChatPage() {
                             }}
                         />
                         <Button 
-                        onClick={
+                        onClick={() =>{
                             handleNovaMensagem(mensagem)
+                        }
                         }
                         iconName="arrowRight" 
                         buttonColors={{
