@@ -194,6 +194,15 @@ function MessageList(props) {
                             >
                                 {(new Date().toLocaleDateString())}
                             </Text>
+                            <Button
+                                label="X"
+                                buttonColors={{
+                                    contrastColor: appConfig.theme.colors.neutrals["000"],
+                                    mainColor: appConfig.theme.colors.primary["500"],
+                                    mainColorLight: appConfig.theme.colors.primary["400"],
+                                    mainColorStrong: appConfig.theme.colors.primary["600"],
+                                }}
+                            /> 
                         </Box>
                         {mensagem.texto}
                     </Text>
