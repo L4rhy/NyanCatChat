@@ -3,11 +3,10 @@ import React from 'react';
 import { useRouter } from 'next/router';
 import appConfig from '../config.json';
 
-const [some,setSome] = React.useState("0")
-function AreaFoto(){
-  if(some==0){
-  return(
-    <Box
+function AreaFoto(props){
+  if(props.children==0){
+    return(
+      <Box
     styleSheet={{
       display: 'flex',
       flexDirection: 'column',
@@ -38,20 +37,20 @@ function AreaFoto(){
         padding: '3px 10px',
         borderRadius: '1000px'
       }}
-    >
+      >
       {username}
     </Text>
     </Box>
   )}else{
     return(
-    <Box
-    styleSheet={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      maxWidth: '200px',
-      padding: '16px',
-      backgroundColor: appConfig.theme.colors.neutrals["800"],
+      <Box
+      styleSheet={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        maxWidth: '200px',
+        padding: '16px',
+        backgroundColor: appConfig.theme.colors.neutrals["800"],
       border: '1px solid',
       borderColor: appConfig.theme.colors.neutrals['999'],
       borderRadius: '10px',
@@ -70,9 +69,9 @@ function Titulo(props) {
       <Tag>{props.children}</Tag>
       <style jsx>{`
               ${Tag} {
-                  color: ${appConfig.theme.colors.neutrals["000"]};
-                  font-size: 24px;
-                  font-weight: 600;
+                color: ${appConfig.theme.colors.neutrals["000"]};
+                font-size: 24px;
+                font-weight: 600;
               }
               `}</style>
     </>
@@ -81,6 +80,7 @@ function Titulo(props) {
 export default function PaginaInicial() {
   const [username, setUsername] = React.useState('L4rhy')
   const roteamento = useRouter()
+  const [some,setSome] = React.useState("0")
   
   return (
     <>
@@ -164,7 +164,7 @@ export default function PaginaInicial() {
 
 
           {/* Photo Area */}
-          <AreaFoto/>
+          <AreaFoto>{some}</AreaFoto>
           {/* Photo Area */}
         </Box>
       </Box>
