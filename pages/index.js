@@ -26,7 +26,7 @@ function AreaFoto(props){
         borderRadius: '50%',
         marginBottom: '16px',
       }}
-      src={`https://github.com/${username}.png`}
+      src={`https://github.com/${props.Tag}.png`}
     />
     <Text
       class="nome"
@@ -38,7 +38,7 @@ function AreaFoto(props){
         borderRadius: '1000px'
       }}
       >
-      {username}
+      {props.Tag}
     </Text>
     </Box>
   )
@@ -60,7 +60,7 @@ function Titulo(props) {
 }
 export default function PaginaInicial() {
   const [username, setUsername] = React.useState("L4rhy");
-  //const [some,setSome] = React.useState("0");
+  const [some,setSome] = React.useState("0");
   const roteamento = useRouter();
   
   return (
@@ -112,11 +112,11 @@ export default function PaginaInicial() {
                 console.log('usuario digitou', event.target.value)
                 const valor = event.target.value
                 setUsername(valor)
-                  /*if(valor.length>2){
+                  if(valor.length>2){
                     setSome("1")
                   }else{
                     setSome("0")
-                  }*/
+                  }
                 console.log(some);
               }}
               fullWidth
@@ -145,7 +145,7 @@ export default function PaginaInicial() {
 
 
           {/* Photo Area */}
-          <AreaFoto></AreaFoto>
+          <AreaFoto Tag={username}>{some}</AreaFoto>
           {/* Photo Area */}
         </Box>
       </Box>
