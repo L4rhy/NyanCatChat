@@ -44,7 +44,7 @@ export default function ChatPage() {
                     }}
                 >
 
-                    {/* <MessageList mensagens={[]} /> */}
+                    {<MessageList mensagens={[]} />}
 
                     <Box
                         as="form"
