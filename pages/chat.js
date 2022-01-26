@@ -101,8 +101,7 @@ export default function ChatPage() {
                                 color: appConfig.theme.colors.neutrals[200],
                             }}
                         />
-                        <Button
-                        type="submit" 
+                        <Button 
                         onClick={
                             handleNovaMensagem(mensagem)
                         }
