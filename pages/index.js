@@ -60,8 +60,8 @@ function Titulo(props) {
 }
 export default function PaginaInicial() {
   const [username, setUsername] = React.useState("L4rhy");
+  //const [some,setSome] = React.useState("0");
   const roteamento = useRouter();
-  const [some,setSome] = React.useState("0");
   
   return (
     <>
@@ -112,11 +112,11 @@ export default function PaginaInicial() {
                 console.log('usuario digitou', event.target.value)
                 const valor = event.target.value
                 setUsername(valor)
-                  if(valor.length>2){
+                  /*if(valor.length>2){
                     setSome("1")
                   }else{
                     setSome("0")
-                  }
+                  }*/
                 console.log(some);
               }}
               fullWidth
