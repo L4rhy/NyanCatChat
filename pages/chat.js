@@ -142,7 +142,7 @@ function MessageList(props) {
     function HandleDeletaMensagem(mensagem){
         console.log(props);
         console.log(mensagem)
-        const novalista = props.filter(()=>{
+        const novalista = props.mensagens.filter(()=>{
             return props.id !== mensagem
         })
         props.setMensagem(novalista)
