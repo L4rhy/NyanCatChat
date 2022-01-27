@@ -139,12 +139,13 @@ function Header() {
 }
 
 function MessageList(props) {
-    console.log(props);
     function HandleDeletaMensagem(mensagem){
-        let novalista = props.mensagem.filter((valor)=>{
+        console.log(props);
+        console.log(mensagem)
+    /*const novalista = props.mensagem.filter((valor)=>{
             return mensagem !== valor
         })
-        props.setMensagem(novalista)
+        props.setMensagem(novalista)*/
     }
     return (
         <Box
