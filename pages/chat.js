@@ -141,7 +141,7 @@ function Header() {
 function MessageList(props) {
     console.log(props);
     function HandleDeletaMensagem(mensagem){
-        const novalista = props.mensagens.filter((valor)=>{
+        const novalista = props.mensagem.filter((valor)=>{
             return mensagem.id != valor.id
         })
         props.setMensagem(novalista)
@@ -202,7 +202,7 @@ function MessageList(props) {
                             <Button
                                 label="X"
                                 variant='tertiary'
-                                marginRight="2"
+                                marginRight="2%"
                                 onClick={ ()=>{
                                     HandleDeletaMensagem(mensagem.id)
                                 }}
