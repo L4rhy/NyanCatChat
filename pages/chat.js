@@ -199,6 +199,7 @@ function MessageList(props) {
                                 tag="span"
                             >
                                 {(new Date().toLocaleDateString())}
+                            </Text>
                             <Button
                                 label="X"
                                 variant='tertiary'
@@ -213,7 +214,6 @@ function MessageList(props) {
                                     mainColorStrong: appConfig.theme.colors.primary["600"],
                                 }}
                             /> 
-                            </Text>
                         </Box>
                         {mensagem.texto}
                     </Text>
