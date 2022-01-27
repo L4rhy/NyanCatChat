@@ -68,7 +68,7 @@ export default function ChatPage() {
                         padding: '16px',
                     }}
                     >
-                    <MessageList mensagens={listaDeMensagens} />
+                    <MessageList mensagens={listaDeMensagens} setListaDeMensagem={setListaDeMensagens} />
                     <Box
                         as="form"
                         styleSheet={{
