@@ -83,7 +83,7 @@ export default function ChatPage() {
                                 setMensagem(valor);
                             }}
                             onKeyPress={(event) => {
-                                if (event.key === 'Enter') {
+                                if (event.key === 'Enter'){
                                     event.preventDefault();
                                     handleNovaMensagem(mensagem);
                                 }
@@ -142,8 +142,8 @@ function MessageList(props) {
     function HandleDeletaMensagem(mensagem){
         console.log(props);
         console.log(mensagem)
-        const novalista = props.mensagens.filter(()=>{
-            return props.id !== mensagem
+        const novalista = props.filter((valor)=>{
+            return valor !== mensagem
         })
         props.setMensagem(novalista)
     }
