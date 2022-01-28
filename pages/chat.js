@@ -9,10 +9,10 @@ const SUPABASE_URL = 'https://eyjzbofflrbmcrsjtdfr.supabase.co';
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 export default function ChatPage() {
+    const roteamento = useRouter();
     const [mensagem, setMensagem] = React.useState('');
     const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
-    const roteamento = useRouter()
-    const {username} = roteamento.query
+    const usuarioLogado = roteamento.query.username
 
     React.useEffect(() => {
       supabaseClient
@@ -25,9 +25,9 @@ export default function ChatPage() {
         });
     }, []);
 
-    function handleNovaMensagem(novaMensagem, username) {
+    function handleNovaMensagem(novaMensagem) {
         const mensagem = {
-          de: username,
+          de: usuarioLogado,
           texto: novaMensagem,
         };
     
@@ -101,7 +101,7 @@ export default function ChatPage() {
                             onKeyPress={(event) => {
                                 if (event.key === 'Enter'){
                                     event.preventDefault();
-                                    handleNovaMensagem(mensagem, username);
+                                    handleNovaMensagem(mensagem);
                                 }
                             }}
                             placeholder="Insira sua mensagem aqui..."
@@ -156,9 +156,9 @@ function Header() {
 
 function MessageList(props) {
     function HandleDeletaMensagem(mensagem){
-        const novaLista = props.mensagens.filter(
-            mensagemFiltrada =>  mensagemFiltrada.id !== mensagem
-            );
+        const novaLista = props.mensagens.filter((mensagemFiltrada) => { 
+            mensagemFiltrada.id !== mensagem
+        });
         supabaseClient
             .from("mensagens")
             .delete()
