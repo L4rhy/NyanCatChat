@@ -25,7 +25,7 @@ export default function ChatPage() {
         });
     }, []);
 
-    function handleNovaMensagem(novaMensagem) {
+    function handleNovaMensagem(novaMensagem, username) {
         const mensagem = {
           de: username,
           texto: novaMensagem,
@@ -101,7 +101,7 @@ export default function ChatPage() {
                             onKeyPress={(event) => {
                                 if (event.key === 'Enter'){
                                     event.preventDefault();
-                                    handleNovaMensagem(mensagem);
+                                    handleNovaMensagem(mensagem, username);
                                 }
                             }}
                             placeholder="Insira sua mensagem aqui..."
