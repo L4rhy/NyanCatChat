@@ -118,7 +118,11 @@ export default function ChatPage() {
                                 color: appConfig.theme.colors.neutrals[200],
                             }}
                         />
-                        <ButtonSendSticker/>
+                        <ButtonSendSticker
+                            onStickerClick={(sticker) =>{
+                                handleNovaMensagem(":sticker:"+sticker)
+                            }}
+                        />
                         <Button 
                         onClick={() =>{
                             handleNovaMensagem(mensagem)
