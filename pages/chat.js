@@ -24,7 +24,7 @@ export default function ChatPage() {
 
     function handleNovaMensagem(novaMensagem) {
         const mensagem = {
-          de: 'vanessametonini',
+          de: 'L4rhy',
           texto: novaMensagem,
         };
     
