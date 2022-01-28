@@ -142,7 +142,7 @@ export default function ChatPage() {
                             mainColor: appConfig.theme.colors.primary["500"],
                             mainColorLight: appConfig.theme.colors.primary["400"],
                             mainColorStrong: appConfig.theme.colors.primary["600"],
-                          }}/>
+                        }}/>
                     </Box>
                 </Box>
             </Box>
@@ -250,7 +250,16 @@ function MessageList(props) {
                             /> 
                             </Text>
                         </Box>
-                        {mensagem.texto}
+                        {mensagem.texto.startWith(":sticker:")
+                            ? (
+                                <Image 
+                                src={mensagem.texto.replace(":sticker:", "")}
+                                />
+                            )
+                            : (
+                                mensagem.texto
+                            )
+                        }
                     </Text>
                 );
             })}
