@@ -2,6 +2,7 @@ import { Box, Text, TextField, Image, Button } from '@skynexui/components';
 import React from 'react';
 import appConfig from '../config.json';
 import { createClient } from '@supabase/supabase-js'
+import { useRouter } from 'next/router';
 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MzMyODc3OSwiZXhwIjoxOTU4OTA0Nzc5fQ.5af-4seAQeEpbGQ1kVGmlxjCcsnU-KVkL3cVNOFCLUc';
 const SUPABASE_URL = 'https://eyjzbofflrbmcrsjtdfr.supabase.co';
@@ -10,7 +11,9 @@ const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 export default function ChatPage() {
     const [mensagem, setMensagem] = React.useState('');
     const [listaDeMensagens, setListaDeMensagens] = React.useState([]);
-  
+    const roteamento = useRouter()
+    const {username} = roteamento.query
+
     React.useEffect(() => {
       supabaseClient
         .from('mensagens')
@@ -24,7 +27,7 @@ export default function ChatPage() {
 
     function handleNovaMensagem(novaMensagem) {
         const mensagem = {
-          de: 'L4rhy',
+          de: username,
           texto: novaMensagem,
         };
     
@@ -153,10 +156,16 @@ function Header() {
 
 function MessageList(props) {
     function HandleDeletaMensagem(mensagem){
+        const novaLista = props.mensagens.filter(
+            mensagemFiltrada =>  mensagemFiltrada.id !== mensagem
+            );
         supabaseClient
             .from("mensagens")
             .delete()
-            .match({mensagem})
+            .match({id : mensagem})
+            .then(()=>{
+                props.setListaDeMensagens(novaLista)
+            })
     }
     return (
         <Box
