@@ -250,7 +250,7 @@ function MessageList(props) {
                             /> 
                             </Text>
                         </Box>
-                        {mensagem.texto.startWith(":sticker:")
+                        {mensagem.texto.startsWith(":sticker:")
                             ? (
                                 <Image 
                                 src={mensagem.texto.replace(":sticker:", "")}
