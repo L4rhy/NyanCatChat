@@ -199,7 +199,7 @@ function MessageList(props) {
                                     display: 'inline-block',
                                     marginRight: '8px',
                                 }}
-                                src={`https://github.com/L4rhy.png`}
+                                src={`https://github.com/${mensagem.de}.png`}
                             />
                             <Text tag="strong">
                                 {mensagem.de}
@@ -213,7 +213,6 @@ function MessageList(props) {
                                 tag="span"
                             >
                                 {(new Date().toLocaleDateString())}
-                            </Text>
                             <Button
                                 label="X"
                                 variant='tertiary'
@@ -228,6 +227,7 @@ function MessageList(props) {
                                     mainColorStrong: appConfig.theme.colors.primary["600"],
                                 }}
                             /> 
+                            </Text>
                         </Box>
                         {mensagem.texto}
                     </Text>
