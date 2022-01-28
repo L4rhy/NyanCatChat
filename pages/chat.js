@@ -9,6 +9,15 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5v
 const SUPABASE_URL = 'https://eyjzbofflrbmcrsjtdfr.supabase.co';
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
+function escutaMensagens(adicionaMensagem){
+    return supabaseClient
+            .from("mensagens")
+            .on("INSERT", ({respostaLive }) => {
+                adicionaMensagem(respostaLive.new)
+            })
+            .subscribe()
+}
+
 export default function ChatPage() {
     const roteamento = useRouter();
     const [mensagem, setMensagem] = React.useState('');
@@ -16,7 +25,7 @@ export default function ChatPage() {
     const usuarioLogado = roteamento.query.username
 
     React.useEffect(() => {
-      supabaseClient
+    supabaseClient
         .from('mensagens')
         .select('*')
         .order('id', { ascending: false })
@@ -24,7 +33,16 @@ export default function ChatPage() {
           console.log('Dados da consulta:', data);
           setListaDeMensagens(data);
         });
-    }, []);
+
+    escutaMensagens((novaMensagem) => {
+        setListaDeMensagens((valorAtualDalista) => {
+            return [
+                novaMensagem,
+                ...valorAtualDalista,
+              ]
+        });
+    })
+    }, [])
 
     function handleNovaMensagem(novaMensagem) {
         const mensagem = {
@@ -35,15 +53,11 @@ export default function ChatPage() {
         supabaseClient
         .from('mensagens')
         .insert([
-            // Tem que ser um objeto com os MESMOS CAMPOS que você escreveu no supabase
             mensagem
         ])
         .then(({ data }) => {
             console.log('Criando mensagem: ', data);
-            setListaDeMensagens([
-                data[0],
-                ...listaDeMensagens,
-              ]);
+
         });
         setMensagem('');
     }
