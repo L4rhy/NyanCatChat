@@ -124,7 +124,19 @@ export default function ChatPage() {
                             handleNovaMensagem(mensagem)
                         }
                         }
-                        iconName="arrowRight" 
+                        iconName="arrowRight"
+                        styleSheet={{
+                            borderRadius: '50%',
+                            padding: '0 3px 0 0',
+                            minWidth: '50px',
+                            minHeight: '50px',
+                            fontSize: '20px',
+                            marginBottom: '8px',
+                            lineHeight: '0',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                        }}  
                         buttonColors={{
                             contrastColor: appConfig.theme.colors.neutrals["000"],
                             mainColor: appConfig.theme.colors.primary["500"],
