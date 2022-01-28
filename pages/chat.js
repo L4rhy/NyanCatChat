@@ -178,7 +178,7 @@ function MessageList(props) {
             .delete()
             .match({id : mensagem})
             .then(()=>{
-                props.setListaDeMensagens(novaLista)
+                props.setListaDeMensagem(novaLista)
             })
     }
     return (
