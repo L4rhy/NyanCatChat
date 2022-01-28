@@ -9,13 +9,13 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5v
 const SUPABASE_URL = 'https://eyjzbofflrbmcrsjtdfr.supabase.co';
 const supabaseClient = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-function escutaMensagens(adicionaMensagem){
+function escutaMensagensEmTempoReal(adicionaMensagem) {
     return supabaseClient
-            .from("mensagens")
-            .on("INSERT", ({respostaLive }) => {
-                adicionaMensagem(respostaLive.new)
-            })
-            .subscribe()
+      .from('mensagens')
+      .on('INSERT', (respostaLive) => {
+        adicionaMensagem(respostaLive.new);
+      })
+      .subscribe();
 }
 
 export default function ChatPage() {
@@ -25,24 +25,28 @@ export default function ChatPage() {
     const usuarioLogado = roteamento.query.username
 
     React.useEffect(() => {
-    supabaseClient
-        .from('mensagens')
-        .select('*')
-        .order('id', { ascending: false })
-        .then(({ data }) => {
-          console.log('Dados da consulta:', data);
-          setListaDeMensagens(data);
-        });
+        supabaseClient
+          .from('mensagens')
+          .select('*')
+          .order('id', { ascending: false })
+          .then(({ data }) => {
+            setListaDeMensagens(data);
+          });
+    
+        const subscription = escutaMensagensEmTempoReal((novaMensagem) => {
 
-    escutaMensagens((novaMensagem) => {
-        setListaDeMensagens((valorAtualDalista) => {
+          setListaDeMensagens((valorAtualDaLista) => {
             return [
-                novaMensagem,
-                ...valorAtualDalista,
-              ]
+              novaMensagem,
+              ...valorAtualDaLista,
+            ]
+          });
         });
-    })
-    }, [])
+    
+        return () => {
+          subscription.unsubscribe();
+        }
+      }, []);
 
     function handleNovaMensagem(novaMensagem) {
         const mensagem = {
