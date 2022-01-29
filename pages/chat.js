@@ -202,7 +202,7 @@ function MessageList(props) {
             .then(()=>{
                 props.setListaDeMensagens(() => {
                     return [
-                      ...novaLista,
+                      ...novaLista
                     ]
                   })
             })
