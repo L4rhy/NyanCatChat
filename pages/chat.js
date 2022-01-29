@@ -283,6 +283,8 @@ function MessageList(props) {
                                     mainColorLight: appConfig.theme.colors.primary["400"],
                                     mainColorStrong: appConfig.theme.colors.primary["600"],
                                 }}
+
+                                
                             />*/}
                             </Text>
                         </Box>
