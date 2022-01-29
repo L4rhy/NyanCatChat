@@ -270,7 +270,7 @@ function MessageList(props) {
                                 tag="span"
                             >
                                 {(new Date().toLocaleDateString())}
-                            <Button
+                            {/*<Button
                                 label="X"
                                 variant='tertiary'
                                 marginLeft="98%"
@@ -283,7 +283,7 @@ function MessageList(props) {
                                     mainColorLight: appConfig.theme.colors.primary["400"],
                                     mainColorStrong: appConfig.theme.colors.primary["600"],
                                 }}
-                            /> 
+                            />*/}
                             </Text>
                         </Box>
                         {mensagem.texto.startsWith(":sticker:")
