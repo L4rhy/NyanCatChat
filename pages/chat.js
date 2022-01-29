@@ -200,10 +200,9 @@ function MessageList(props) {
             .delete()
             .match({id : mensagem})
             .then(()=>{
-                props.setListaDeMensagens((valorAtualDaLista) => {
+                props.setListaDeMensagens(() => {
                     return [
-                      novaMensagem,
-                      ...valorAtualDaLista,
+                      ...novaLista,
                     ]
                   })
             })
