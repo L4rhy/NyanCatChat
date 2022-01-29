@@ -17,6 +17,17 @@ function escutaMensagensEmTempoReal(adicionaMensagem) {
       })
       .subscribe();
 }
+function escutaMensagensEmTempoRealDelete(adicionaMensagem) {
+    return supabaseClient
+      .from('mensagens')
+      .on('INSERT', (respostaLive) => {
+        adicionaMensagem(respostaLive.new);
+      })
+      .on("DELETE", (respostaLive) => {
+        adicionaMensagem(respostaLive.new);
+      })
+      .subscribe();
+}
 
 export default function ChatPage() {
     const roteamento = useRouter();
