@@ -15,8 +15,13 @@ function escutaMensagensEmTempoReal(adicionaMensagem) {
       .on('INSERT', (respostaLive) => {
         adicionaMensagem(respostaLive.new);
       })
+      .subscribe();
+}
+function escutaMensagensEmTempoRealDelete(retiraMensagem) {
+    return supabaseClient
+      .from('mensagens')
       .on("DELETE", (respostaLive) => {
-        adicionaMensagem(respostaLive.new);
+        retiraMensagem(respostaLive.new);
       })
       .subscribe();
 }
@@ -45,9 +50,17 @@ export default function ChatPage() {
             ]
           });
         });
+        const subscriptionDelete = escutaMensagensEmTempoRealDelete(() =>{
+            setListaDeMensagens((valorAtualDaLista)=>{
+                return[
+                    valorAtualDaLista
+                ]
+            })
+        })
     
         return () => {
           subscription.unsubscribe();
+          subscriptionDelete.unsubscribe()
         }
       }, []);
 
