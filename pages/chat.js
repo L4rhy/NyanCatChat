@@ -14,16 +14,7 @@ function escutaMensagensEmTempoReal(adicionaMensagem) {
       .from('mensagens')
       .on('INSERT', (respostaLive) => {
         adicionaMensagem(respostaLive.new);
-      })
-      .subscribe();
-}
-function escutaMensagensEmTempoRealDelete(adicionaMensagem) {
-    return supabaseClient
-      .from('mensagens')
-      .on('INSERT', (respostaLive) => {
-        adicionaMensagem(respostaLive.new);
-      })
-      .on("DELETE", (respostaLive) => {
+      }).on("DELETE", (respostaLive) => {
         adicionaMensagem(respostaLive.new);
       })
       .subscribe();
