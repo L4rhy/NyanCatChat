@@ -202,13 +202,7 @@ function MessageList(props) {
             .from("mensagens")
             .delete()
             .match({id : mensagem})
-            .then(()=>{
-                props.setListaDeMensagens(() => {
-                    return [
-                      novaLista
-                    ]
-                  })
-            })
+            .then()
     }
     return (
         <Box
